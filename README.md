@@ -18,9 +18,12 @@ $.untrapScreenreader();
 
 ## Experimental
 
-This plugin is still in an experimental state, until it reaches v1.0.0 you must consider all minor releases as breaking changes. Patch releases may introduce new features, but will be backwards compatible.
+This plugin is still in an experimental state, until it reaches v1.0.0 you must
+consider all minor releases as breaking changes. Patch releases may introduce
+new features, but will be backwards compatible.
 
-Please use the tilde range specifier in your package.json to pin to a fixed major and minor version.
+Please use the tilde range specifier in your package.json to pin to a fixed
+major and minor version.
 
 ## Install
 
