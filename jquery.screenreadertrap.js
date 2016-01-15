@@ -1,15 +1,15 @@
 /**
 * @name jquery-screenreader-trap
 * @function $.trapScreenreader
-* @version 0.1.5
+* @version 0.2.0
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
 * @desc Restricts virtual cursor to the given element and it's children. This is
 * achieved by adding aria-hidden=true to all siblings and ancestor siblings of
 * the trapped element. Any elements that have aria-hidden=true state before
 * the trap is activated must have their state preserved. Note this plugin does
 * not trap regular keyboard focus, use jquery-keyboard-trap instead.
-* @fires on.screenreaderTrap
-* @fires off.screenreaderTrap
+* @fires screenreaderTrap
+* @fires screenreaderUntrap
 */
 (function ($, window, document, undefined) {
 
@@ -32,13 +32,13 @@
 
         $modifiedElements = $trappedEl.add($siblings).add($parents).add($parentsSiblings);
 
-        $trappedEl.trigger('on.screenreaderTrap');
+        $trappedEl.trigger('screenreaderTrap');
     };
 
     $.untrapScreenreader = function untrapScreenReader() {
         if ($trappedEl) {
             $modifiedElements.removeAttr('aria-hidden');
-            $trappedEl.trigger('off.screenreaderTrap');
+            $trappedEl.trigger('screenreaderUntrap');
         }
     };
 

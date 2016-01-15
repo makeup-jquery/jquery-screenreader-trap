@@ -28,13 +28,13 @@ major and minor version.
 ## Install
 
 ```js
-npm install @ebay/jquery-screenreader-trap --save
+npm install @ebay/jquery-screenreader-trap
 ```
 
 ## Events
 
-* on.screenreaderTrap : fired when screenreader trap is activated
-* off.screenreaderTrap : fired when screenreader trap is deactivated
+* screenreaderTrap : fired when screenreader trap is activated
+* screenreaderUntrap : fired when screenreader trap is deactivated
 
 ## Development
 

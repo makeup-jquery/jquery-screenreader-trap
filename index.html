@@ -129,11 +129,11 @@
                 }
             });
 
-            $('.trap').on('off.screenreaderTrap', function() {
+            $('.trap').on('screenreaderUntrap', function() {
                 $(this).text('Trap').attr('aria-pressed', 'false');
             });
 
-            $('.trap').on('on.screenreaderTrap', function() {
+            $('.trap').on('screenreaderTrap', function() {
                 $(this).text('Untrap').attr('aria-pressed', 'true');
             });
         </script>
