@@ -1,7 +1,7 @@
 /**
 * @name jquery-screenreader-trap
 * @function $.trapScreenreader
-* @version 0.1.4
+* @version 0.1.5
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
 * @desc Restricts virtual cursor to the given element and it's children. This is
 * achieved by adding aria-hidden=true to all siblings and ancestor siblings of
