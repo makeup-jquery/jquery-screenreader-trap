@@ -1,7 +1,7 @@
 {
   "name": "@ebay/jquery-screenreader-trap",
   "description": "Prevents screen reader's virtual cursor from leaving the confines of an element",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "./jquery.screenreadertrap.js",
   "scripts": {
     "start": "karma start --autoWatch true --singleRun false",
