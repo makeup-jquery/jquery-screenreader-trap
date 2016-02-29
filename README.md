@@ -5,14 +5,14 @@
     <a href='https://coveralls.io/github/ianmcburnie/jquery-screenreader-trap?branch=master'><img src='https://coveralls.io/repos/ianmcburnie/jquery-screenreader-trap/badge.svg?branch=master&service=github' alt='Coverage Status' /></a>
 </p>
 
-Prevents screen reader's virtual cursor from leaving the confines of an element.
+Prevents screen reader's virtual cursor from leaving the confines of a containing element.
 
 Screenreader-trap is a singleton as there can only ever be one active
 screenreader-trap on a page. Creating a new screenreader-trap will disable the
 current trap.
 
 ```js
-$.trapScreenreader($el);
+$.trapScreenreader($containerEl);
 $.untrapScreenreader();
 ```
 
@@ -21,9 +21,6 @@ $.untrapScreenreader();
 This plugin is still in an experimental state, until it reaches v1.0.0 you must
 consider all minor releases as breaking changes. Patch releases may introduce
 new features, but will be backwards compatible.
-
-Please use the tilde range specifier in your package.json to pin to a fixed
-major and minor version.
 
 ## Install
 
@@ -35,6 +32,10 @@ npm install @ebay/jquery-screenreader-trap
 
 * screenreaderTrap : fired when screenreader trap is activated
 * screenreaderUntrap : fired when screenreader trap is deactivated
+
+## Dependencies
+
+* [jquery](https://jquery.com/)
 
 ## Development
 

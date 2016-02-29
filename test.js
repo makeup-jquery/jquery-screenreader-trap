@@ -1,77 +1,47 @@
-describe("jquery.screenreadertrap.js", function() {
-
-    var dom = '<div id="grandparent">'
-                + '<div class="uncle"></div>'
-                + '<div id="parent">'
-                    + '<div class="sibling"></div>'
-                    + '<div id="trap"></div>'
-                    + '<div class="sibling"></div>'
-                + '</div>'
-                + '<div class="uncle"></div>'
-            + '</div>';
-    var $body = $('body');
-    var $trap;
-
-    beforeEach(function() {
-        $body.empty().append($(dom));
-        $trap = $('#trap');
+data.forEach(function(data) {
+    describe("when trap is activated", function() {
+        beforeAll(function() {
+            setupSuite(data);
+        });
+        it("should add aria-hidden=false to trapped element", function() {
+            expect($trap.attr('aria-hidden')).toBe('false');
+        });
+        it("should add aria-hidden=true to sibling elements", function() {
+            expect($trap.prev().attr('aria-hidden')).toBe('true');
+            expect($trap.next().attr('aria-hidden')).toBe('true');
+        });
+        it("should add aria-hidden=false to parents of trapped element", function() {
+            expect($trap.parents().attr('aria-hidden')).toBe('false');
+        });
+        it("should add aria-hidden=true to siblings of parent when trapped", function() {
+            expect($trap.parent().prev().attr('aria-hidden')).toBe('true');
+            expect($trap.parent().next().attr('aria-hidden')).toBe('true');
+        });
+        it("should preserve any existing aria-hidden state in siblings", function() {
+            expect($hasExistingState.attr('aria-hidden')).toBe('true');
+        });
     });
-
-    it("should add aria-hidden=false to trapped element", function(){
-        $.trapScreenreader($trap);
-        expect($trap.attr('aria-hidden')).toEqual("false");
+    describe("when trap is deactivated", function() {
+        beforeAll(function() {
+            setupSuite(data);
+            $.untrapScreenreader();
+        });
+        it("should add aria-hidden=false to trapped element", function() {
+            expect($trap.attr('aria-hidden')).toBe(undefined);
+        });
+        it("should remove aria-hidden from sibling elements", function() {
+            expect($trap.prev().attr('aria-hidden')).toBe(undefined);
+            expect($trap.next().attr('aria-hidden')).toBe(undefined);
+        });
+        it("should remove aria-hidden from parents of untrapped element", function() {
+            expect($trap.parents().attr('aria-hidden')).toBe(undefined);
+        });
+        it("should remove aria-hidden from siblings of parent when untrapped", function() {
+            expect($trap.parent().prev().attr('aria-hidden')).toBe(undefined);
+            expect($trap.parent().next().attr('aria-hidden')).toBe(undefined);
+        });
+        it("should preserve any existing aria-hidden state in siblings", function() {
+            expect($hasExistingState.attr('aria-hidden')).toBe('true');
+        });
     });
-
-    it("should remove aria-hidden from untrapped element", function(){
-        $.trapScreenreader($trap);
-        $.untrapScreenreader();
-        expect($trap.attr('aria-hidden')).toEqual(undefined);
-    });
-
-    it("should add aria-hidden=false to parents of trapped element", function(){
-        $.trapScreenreader($trap);
-        expect($trap.parents().attr('aria-hidden')).toEqual('false');
-    });
-
-    it("should remove aria-hidden from parents of untrapped element", function(){
-        $.trapScreenreader($trap);
-        $.untrapScreenreader();
-        expect($trap.parents().attr('aria-hidden')).toEqual(undefined);
-    });
-
-    it("should add aria-hidden=true to sibling elements", function(){
-        $.trapScreenreader($trap);
-        expect($trap.prev().attr('aria-hidden') === 'true' && $trap.next().attr('aria-hidden') === 'true').toEqual(true);
-    });
-
-    it("should remove aria-hidden from sibling elements", function(){
-        $.trapScreenreader($trap);
-        $.untrapScreenreader();
-        expect($trap.prev().attr('aria-hidden') === undefined && $trap.next().attr('aria-hidden') === undefined).toEqual(true);
-    });
-
-    it("should add aria-hidden=true to uncle elements when trapped", function(){
-        $.trapScreenreader($trap);
-        expect($trap.parent().prev().attr('aria-hidden') === 'true' && $trap.parent().next().attr('aria-hidden') === 'true').toEqual(true);
-    });
-
-    it("should remove aria-hidden from uncle elements when untrapped", function(){
-        $.trapScreenreader($trap);
-        $.untrapScreenreader();
-        expect($trap.parent().prev().attr('aria-hidden') === undefined && $trap.parent().next().attr('aria-hidden') === undefined).toEqual(true);
-    });
-
-    it("should preserve existing aria-hidden state in siblings during trap", function(){
-        $.trapScreenreader($trap);
-        expect($trap.prev().attr('aria-hidden') === 'true' && $trap.next().attr('aria-hidden') === 'true').toEqual(true);
-    });
-
-    it("should preserve existing aria-hidden state in siblings after trap", function(){
-        $trap.prev().attr('aria-hidden', 'true');
-        $trap.next().attr('aria-hidden', 'true');
-        $.trapScreenreader($trap);
-        $.untrapScreenreader();
-        expect($trap.prev().attr('aria-hidden') === 'true' && $trap.next().attr('aria-hidden') === 'true').toEqual(true);
-    });
-
 });

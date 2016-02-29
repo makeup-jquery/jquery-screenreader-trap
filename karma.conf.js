@@ -17,6 +17,8 @@ module.exports = function(config) {
     files: [
       'node_modules/jquery/dist/jquery.min.js',
       'jquery.screenreadertrap.js',
+      'test-data.js',
+      'test-setup.js',
       'test.js'
     ],
 
