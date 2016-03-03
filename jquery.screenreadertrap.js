@@ -1,58 +1,12 @@
 /**
- * @file jQuery singleton traps virtual cursor to the given element and it's children
- * @author Ian McBurnie <ianmcburnie@hotmail.com>
- */
-
+* @file jQuery singleton traps virtual cursor to the given element and it's children
+* @author Ian McBurnie <ianmcburnie@hotmail.com>
+* @version 0.2.2
+* @requires jquery
+*/
 (function($, window, document, undefined) {
 
     var pluginName = 'jquery-screenreader-trap';
-
-    /**
-    * jQuery definition to anchor JsDoc comments.
-    *
-    * @see http://jquery.com/
-    * @name $
-    * @class jQuery Library
-    */
-
-    /**
-    * jQuery 'fn' definition to anchor JsDoc comments.
-    *
-    *
-    * @see http://jquery.com/
-    * @name fn
-    * @class jQuery Plugin Scope
-    * @memberof jQuery
-    */
-
-    /**
-    * jQuery singleton traps keyboard focus cycle within given element's interactive children
-    *
-    * @class trapScreenreader
-    * @version 0.2.1
-    * @fires screenreaderTrap - when trap is activated
-    * @fires screenreaderUntrap - when trap is deactivated
-    * @return {jQuery} chainable jQuery class
-    * @memberof jQuery.fn
-    */
-
-    /**
-    * keyboardTrap event
-    *
-    * @event screenreaderTrap
-    * @type {object}
-    * @property {object} event - event object
-    * @memberof jQuery.fn.trapScreenreader
-    */
-
-    /**
-    * keyboardUntrap event
-    *
-    * @event screenreaderUntrap
-    * @type {object}
-    * @property {object} event - event object
-    * @memberof jQuery.fn.trapScreenreader
-    */
 
     // the element that will be trapped
     var $trappedEl;
@@ -60,6 +14,12 @@
     // collection of elements that will be modified
     var $modifiedElements;
 
+    /**
+    * @method "jQuery.trapScreenreader"
+    * @fires screenreaderTrap - when trap is activated
+    * @fires screenreaderUntrap - when trap is deactivated
+    * @return {Object} chainable jQuery class
+    */
     $.trapScreenreader = function trapScreenReader(el) {
         // ensure current trap is deactivated
         $.untrapScreenreader();
@@ -96,3 +56,25 @@
     };
 
 }(jQuery, window, document));
+
+/**
+* The jQuery plugin namespace.
+* @external "jQuery.fn"
+* @see {@link http://learn.jquery.com/plugins/|jQuery Plugins}
+*/
+
+/**
+* keyboardTrap event
+*
+* @event screenreaderTrap
+* @type {object}
+* @property {object} event - event object
+*/
+
+/**
+* keyboardUntrap event
+*
+* @event screenreaderUntrap
+* @type {object}
+* @property {object} event - event object
+*/
