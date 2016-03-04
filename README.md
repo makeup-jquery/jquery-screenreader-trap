@@ -3,6 +3,8 @@
 <p>
     <a href="https://travis-ci.org/ianmcburnie/jquery-screenreader-trap"><img src="https://api.travis-ci.org/ianmcburnie/jquery-screenreader-trap.svg?branch=master" alt="Build Status" /></a>
     <a href='https://coveralls.io/github/ianmcburnie/jquery-screenreader-trap?branch=master'><img src='https://coveralls.io/repos/ianmcburnie/jquery-screenreader-trap/badge.svg?branch=master&service=github' alt='Coverage Status' /></a>
+    <a href="https://david-dm.org/ianmcburnie/jquery-screenreader-trap"><img src="https://david-dm.org/ianmcburnie/jquery-screenreader-trap.svg" alt="Dependency status" /></a>
+    <a href="https://david-dm.org/ianmcburnie/jquery-screenreader-trap#info=devDependencies"><img src="https://david-dm.org/ianmcburnie/jquery-screenreader-trap/dev-status.svg" alt="devDependency status" /></a>
 </p>
 
 Prevents screen reader's virtual cursor from leaving the confines of a containing element.
