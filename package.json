@@ -1,5 +1,5 @@
 {
-  "name": "@ebay/jquery-screenreader-trap",
+  "name": "jquery-screenreader-trap",
   "description": "Prevents screen reader's virtual cursor from leaving the confines of an element",
   "version": "0.2.2",
   "scripts": {

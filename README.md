@@ -1,4 +1,4 @@
-# @ebay/jquery-screenreader-trap
+# jquery-screenreader-trap
 
 <p>
     <a href="https://travis-ci.org/ianmcburnie/jquery-screenreader-trap"><img src="https://api.travis-ci.org/ianmcburnie/jquery-screenreader-trap.svg?branch=master" alt="Build Status" /></a>
@@ -27,7 +27,7 @@ new features, but will be backwards compatible.
 ## Install
 
 ```js
-npm install @ebay/jquery-screenreader-trap
+npm install jquery-screenreader-trap
 ```
 
 ## Events
