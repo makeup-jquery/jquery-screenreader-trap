@@ -26,9 +26,17 @@ new features, but will be backwards compatible.
 
 ## Install
 
+<strike>
+```
+npm install @ebay/jquery-screenreader-trap
+```
+</strike>
+
 ```js
 npm install jquery-screenreader-trap
 ```
+
+**NOTE: The @ebay package scope is no longer supported. In order to receive latest NPM updates, please use the non-scoped version of this package.**
 
 ## Events
 
