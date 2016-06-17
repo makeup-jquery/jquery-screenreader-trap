@@ -1,11 +1,10 @@
 /**
 * @file jQuery singleton traps virtual cursor to the given element and it's children
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
-* @version 0.2.2
+* @version 0.3.0
 * @requires jquery
 */
 (function($, window, document, undefined) {
-
     var pluginName = 'jquery-screenreader-trap';
 
     // the element that will be trapped
@@ -54,7 +53,6 @@
             $trappedEl.trigger('screenreaderUntrap');
         }
     };
-
 }(jQuery, window, document));
 
 /**
@@ -64,7 +62,7 @@
 */
 
 /**
-* keyboardTrap event
+* screenreaderTrap event
 *
 * @event screenreaderTrap
 * @type {object}
@@ -72,7 +70,7 @@
 */
 
 /**
-* keyboardUntrap event
+* screenreaderUntrap event
 *
 * @event screenreaderUntrap
 * @type {object}
