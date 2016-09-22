@@ -3,17 +3,19 @@
   "description": "Prevents screen reader's virtual cursor from leaving the confines of an element",
   "version": "0.3.0",
   "scripts": {
-    "start": "npm run lasso && gulp",
+    "start": "npm run lasso && parallelshell 'npm run server' 'npm run watch'",
     "tdd": "karma start --autoWatch true --singleRun false",
     "test": "karma start --autoWatch false --singleRun true",
     "prepublish": "npm run clean && npm run lint && npm run test && npm run build",
-    "build": "npm run jsdoc && npm run minify",
-    "clean": "rimraf jsdoc test_reports .cache build lint.txt",
+    "build": "npm run jsdoc && npm run minify && npm run lasso",
+    "clean": "rimraf jsdoc test_reports .cache build docs/browser.js.* lint.txt",
     "fix": "eslint jquery.screenreadertrap.js --fix",
     "jsdoc": "jsdoc jquery.screenreadertrap.js -d jsdoc",
     "lasso": "lasso browser.json --output-dir docs --minify",
     "lint": "eslint jquery.screenreadertrap.js > lint.txt",
-    "minify": "jsmin -o jquery.screenreadertrap.min.js jquery.screenreadertrap.js"
+    "minify": "jsmin -o jquery.screenreadertrap.min.js jquery.screenreadertrap.js",
+    "server": "browser-sync start -s --ss docs --index docs/index.html --files docs",
+    "watch": "onchange jquery.screenreadertrap.js -- npm run lasso"
   },
   "pre-commit": [
     "clean",
@@ -40,11 +42,9 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2",
-    "child_process": "^1",
     "coveralls": "^2",
     "eslint": "^3",
-    "eslint-config-google": "~0.6.0",
-    "gulp": "^3.9.1",
+    "eslint-config-google": "~0.6",
     "jasmine-core": "^2",
     "jquery": ">=1.11",
     "jquery-migrate": "^3",
@@ -56,6 +56,9 @@
     "karma-jasmine": "^1",
     "karma-junit-reporter": "^1",
     "karma-phantomjs-launcher": "^1",
+    "lasso-cli": "^2",
+    "onchange": "^3",
+    "parallelshell": "^2",
     "phantomjs-prebuilt": "^2",
     "pre-commit": "^1",
     "rimraf": "^2"
