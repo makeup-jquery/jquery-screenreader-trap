@@ -20,6 +20,12 @@ data.forEach(function(data) {
         it("should preserve any existing aria-hidden state in siblings", function() {
             expect($hasExistingState.attr('aria-hidden')).toBe('true');
         });
+        it("should message about the trap once", function () {
+            expect(trapNotified).toEqual([true]);
+        });
+        it("should not message about the untrap", function () {
+            expect(untrapNotified).toEqual([]);
+        });
     });
     describe("when trap is deactivated", function() {
         beforeAll(function() {
@@ -42,6 +48,20 @@ data.forEach(function(data) {
         });
         it("should preserve any existing aria-hidden state in siblings", function() {
             expect($hasExistingState.attr('aria-hidden')).toBe('true');
+        });
+        it("should message about the trap once", function () {
+            expect(trapNotified).toEqual([true]);
+        });
+        it("should message about the untrap once", function () {
+            expect(untrapNotified).toEqual([true]);
+        });
+        describe("when trap is deactivated again", function () {
+            beforeEach(function () {
+                $.untrapScreenreader();
+            });
+            it("should not message about the untrap again", function () {
+                expect(untrapNotified).toEqual([true]);
+            });
         });
     });
 });

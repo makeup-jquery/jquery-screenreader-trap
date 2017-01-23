@@ -62,6 +62,9 @@
 
             // 're-enable' the main landmark ancestor
             $mainEl.attr('role', 'main');
+
+            // remove cached element
+            $trappedEl = null;
         }
     };
 }(jQuery, window, document));
