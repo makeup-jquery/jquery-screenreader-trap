@@ -1,11 +1,14 @@
 /**
 * @file jQuery singleton traps virtual cursor to the given element and it's children
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
-* @version 0.3.0
+* @version 0.3.1
 * @requires jquery
 */
 (function($, window, document, undefined) {
     var pluginName = 'jquery-screenreader-trap';
+
+    // the main landmark
+    var $mainEl;
 
     // the element that will be trapped
     var $trappedEl;
@@ -20,8 +23,13 @@
     * @return {Object} chainable jQuery class
     */
     $.trapScreenreader = function trapScreenReader(el) {
+        $mainEl = $('main, [role=main]');
+
         // ensure current trap is deactivated
         $.untrapScreenreader();
+
+        // we must 'disable' any main landmark ancestor to avoid issues on voiceover iOS
+        $mainEl.attr('role', 'presentation');
 
         // store reference to trapped el
         $trappedEl = $(el);
@@ -51,6 +59,9 @@
 
             // notify observers
             $trappedEl.trigger('screenreaderUntrap');
+
+            // 're-enable' the main landmark ancestor
+            $mainEl.attr('role', 'main');
         }
     };
 }(jQuery, window, document));
