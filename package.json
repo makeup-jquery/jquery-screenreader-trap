@@ -1,7 +1,7 @@
 {
   "name": "jquery-screenreader-trap",
   "description": "Prevents screen reader's virtual cursor from leaving the confines of an element",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "scripts": {
     "start": "npm run lasso && parallelshell 'npm run server' 'npm run watch'",
     "tdd": "karma start --autoWatch true --singleRun false",
