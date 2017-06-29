@@ -7,6 +7,8 @@
     <a href="https://david-dm.org/ianmcburnie/jquery-screenreader-trap#info=devDependencies"><img src="https://david-dm.org/ianmcburnie/jquery-screenreader-trap/dev-status.svg" alt="devDependency status" /></a>
 </p>
 
+**ATTENTION:** A non-jQuery version is now available at [makeup-screenreader-trap](https://github.com/makeup-js/makeup-screenreader-trap).
+
 Prevents screen reader's virtual cursor from leaving the confines of a containing element.
 
 Screenreader-trap is a singleton as there can only ever be one active
@@ -26,17 +28,9 @@ new features, but will be backwards compatible.
 
 ## Install
 
-<strike>
-```
-npm install @ebay/jquery-screenreader-trap
-```
-</strike>
-
 ```js
 npm install jquery-screenreader-trap
 ```
-
-**NOTE: The @ebay package scope is no longer supported. In order to receive latest NPM updates, please use the non-scoped version of this package.**
 
 ## Events
 
