@@ -1,7 +1,7 @@
 /**
 * @file jQuery singleton traps virtual cursor to the given element and it's children
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
-* @version 0.3.2
+* @version 1.0.0
 * @requires jquery
 */
 (function($, window, document, undefined) {
