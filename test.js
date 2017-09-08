@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */
+
 data.forEach(function(data) {
     describe("when trap is activated", function() {
         beforeAll(function() {
@@ -20,10 +22,10 @@ data.forEach(function(data) {
         it("should preserve any existing aria-hidden state in siblings", function() {
             expect($hasExistingState.attr('aria-hidden')).toBe('true');
         });
-        it("should message about the trap once", function () {
+        it("should message about the trap once", function() {
             expect(trapNotified).toEqual([true]);
         });
-        it("should not message about the untrap", function () {
+        it("should not message about the untrap", function() {
             expect(untrapNotified).toEqual([]);
         });
     });
@@ -49,17 +51,17 @@ data.forEach(function(data) {
         it("should preserve any existing aria-hidden state in siblings", function() {
             expect($hasExistingState.attr('aria-hidden')).toBe('true');
         });
-        it("should message about the trap once", function () {
+        it("should message about the trap once", function() {
             expect(trapNotified).toEqual([true]);
         });
-        it("should message about the untrap once", function () {
+        it("should message about the untrap once", function() {
             expect(untrapNotified).toEqual([true]);
         });
-        describe("when trap is deactivated again", function () {
-            beforeEach(function () {
+        describe("when trap is deactivated again", function() {
+            beforeEach(function() {
                 $.untrapScreenreader();
             });
-            it("should not message about the untrap again", function () {
+            it("should not message about the untrap again", function() {
                 expect(untrapNotified).toEqual([true]);
             });
         });

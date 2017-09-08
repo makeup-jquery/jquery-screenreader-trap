@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */
+
 // called by every test suite
 function setupSuite(html, options) {
     // setup dom
@@ -10,11 +12,11 @@ function setupSuite(html, options) {
     trapNotified = [];
     untrapNotified = [];
 
-    $trap.on('screenreaderTrap', function () {
+    $trap.on('screenreaderTrap', function() {
         trapNotified.push(true);
     });
 
-    $trap.on('screenreaderUntrap', function () {
+    $trap.on('screenreaderUntrap', function() {
         untrapNotified.push(true);
     });
 
