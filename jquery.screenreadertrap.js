@@ -1,11 +1,11 @@
 /**
 * @file jQuery singleton traps virtual cursor to the given element and it's children
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
-* @version 1.0.0
+* @version 1.0.1
 * @requires jquery
 */
-(function($, window, document, undefined) {
-    var pluginName = 'jquery-screenreader-trap';
+(function($, window, document, undefined) { // eslint-disable-line no-unused-vars
+    var pluginName = 'jquery-screenreader-trap'; // eslint-disable-line no-unused-vars
 
     // the main landmark
     var $mainEl;
